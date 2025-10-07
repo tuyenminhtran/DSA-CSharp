@@ -2,6 +2,7 @@
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,6 @@ namespace DSLKDon
         public int Count { get { return count; } set { count = value; } }
 
         // 3. constructors
-        public MyList() { }
         public MyList()
         {
             head = null;
@@ -82,8 +82,140 @@ namespace DSLKDon
         // hiển thị danh sách 
         public void ShowList()
         {
-
+            if ( head == null )
+            {
+                Console.WriteLine("Danh sách rỗng!");
+                return;
+            }
+            Console.WriteLine("Danh sách hiện tại: ");
+            IntNode temp = head;
+            while ( temp != null )
+            {
+                Console.Write(temp.Data + " ");
+                temp = temp.Next;
+            }
+            Console.WriteLine();
         }
 
+        // tìm node có giá trị x
+
+        public IntNode SearchX ( int x )
+        {
+            IntNode temp = head;
+            while ( temp != null )
+            {
+                if (temp.Data == x)
+                    return temp;
+                temp = temp.Next;
+            }
+            return null;            // không tìm thấy
+        }
+
+        // lấy node có giá trị lớn nhất
+        public IntNode GetMax()
+        {
+            if (head == null) return null;
+            IntNode maxNode = head; 
+            IntNode temp = head.Next;
+
+            while ( temp != null )
+            {
+                if (temp.Data > maxNode.Data)
+                    maxNode = temp;
+                temp = temp.Next;
+            }
+            return maxNode;
+        }
+
+        // lấy node có giá trị nhỏ nhất 
+        public IntNode GetMin()
+        {
+            if (head == null) return null;
+            IntNode minNode = head;
+            IntNode temp = head.Next;
+
+            while ( temp != null )
+            {
+                if (temp.Data < minNode.Data)
+                    minNode = temp;
+                temp = temp.Next;
+            }
+            return minNode;
+        }
+
+        // lấy danh sách các phần tử chẳn
+        public MyList GetEvenList()
+        {
+            MyList evenList = new MyList();
+            IntNode temp = head;
+
+            while ( temp != null )
+            {
+                if (temp.Data % 2 == 0)
+                    evenList.AddLast(temp.Data);
+                temp = temp.Next;
+            }
+            return evenList;
+        }
+
+        // lấy danh sách phần tử lẻ 
+        public MyList GetOddList()
+        {
+            MyList oddList = new MyList();
+            IntNode temp = head;
+
+            while (temp != null)
+            {
+                if (temp.Data % 2 != 0)
+                    oddList.AddLast(temp.Data);
+                temp = temp.Next;
+            }
+            return oddList;
+        }
+
+        
+            // Phương thức nối hai danh sách liên kết lst1 và lst2 thành lst3
+            public static MyList NoiDanhSach(MyList lst1, MyList lst2)
+        {
+            MyList lst3 = new MyList(); // Tạo danh sách mới để chứa kết quả
+
+            // Sao chép các phần tử từ lst1 vào lst3
+            IntNode node = lst1.Head;
+            while (node != null)
+            {
+                lst3.AddLast(node.Data); // Thêm phần tử vào cuối lst3
+                node = node.Next;        // Di chuyển đến phần tử tiếp theo
+            }
+
+            // Sao chép các phần tử từ lst2 vào lst3
+            node = lst2.Head;
+            while (node != null)
+            {
+                lst3.AddLast(node.Data);
+                node = node.Next;
+            }
+
+            return lst3; // Trả về danh sách đã nối
+            // tr oi kho qua v
+        }
+        // tính node trung bình cộng các node có giá trị lẻ
+
+        public double TBLe()
+        {
+            int sum = 0, countLe = 0;
+            IntNode temp = head;
+
+            while ( temp != null )
+            {
+                if (temp.Data % 2 != 0) 
+                { 
+                    sum += temp.Data; 
+                    countLe++; 
+                }
+                temp = temp.Next;
+            }
+            if (countLe == 0) return 0;
+            return (double)sum / countLe;
+        }
     }
 }
