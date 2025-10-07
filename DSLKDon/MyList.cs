@@ -175,7 +175,7 @@ namespace DSLKDon
 
         
             // Phương thức nối hai danh sách liên kết lst1 và lst2 thành lst3
-            public static MyList NoiDanhSach(MyList lst1, MyList lst2)
+            public static MyList JoinList(MyList lst1, MyList lst2)
         {
             MyList lst3 = new MyList(); // Tạo danh sách mới để chứa kết quả
 

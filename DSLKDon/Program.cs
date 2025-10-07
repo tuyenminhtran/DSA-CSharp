@@ -50,7 +50,7 @@ namespace DSLKDon
                         break;
                     case 5:
                         Console.WriteLine("=== Nối danh sách 1 và 2 thành danh sách 3 ===");
-                        lst3 = MyList.NoiDanhSach(lst1, lst2);
+                        lst3 = MyList.JoinList(lst1, lst2);
                         Console.WriteLine("Đã nối xong!");
                         break;
                     case 6:
