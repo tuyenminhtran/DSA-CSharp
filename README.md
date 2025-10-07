@@ -4,8 +4,9 @@ Dự án này được xây dựng nhằm phục vụ việc học và ôn luy�
 
 ---
 
-```
 ## 📂 Cấu trúc thư mục
+
+```
 DSA-CSharp/
 │
 ├── Bai1/ → Nhắc lại kiến thức OOP
