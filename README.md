@@ -1,5 +1,5 @@
 # 🧠 DSA-CSharp 
-**bài tập Cấu trúc dữ liệu & Giải thuật (Data Structures & Algorithms)** được viết bằng ngôn ngữ **C#**.
+**Bài tập Cấu trúc dữ liệu & Giải thuật (Data Structures & Algorithms)** được viết bằng ngôn ngữ **C#**.
 Dự án này được xây dựng nhằm phục vụ việc học và ôn luyện các khái niệm nền tảng về cấu trúc dữ liệu như **mảng, danh sách liên kết, ngăn xếp, hàng đợi, cây**,...
 
 ---
