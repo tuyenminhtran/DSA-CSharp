@@ -4,6 +4,7 @@ Dự án này được xây dựng nhằm phục vụ việc học và ôn luy�
 
 ---
 
+```
 ## 📂 Cấu trúc thư mục
 DSA-CSharp/
 │
@@ -13,6 +14,7 @@ DSA-CSharp/
 ├── Bai4/ → Danh sách liên kết đơn
 └── README.md
 
+```
 ---
 
 # Liên hệ
