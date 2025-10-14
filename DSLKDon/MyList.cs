@@ -217,5 +217,8 @@ namespace DSLKDon
             if (countLe == 0) return 0;
             return (double)sum / countLe;
         }
+
+        // buổi 5 
     }
 }
+
