@@ -219,6 +219,68 @@ namespace DSLKDon
         }
 
         // buổi 5 
+        // 1 Input() viết lại hàm nhập các giá trị không trùng 
+        public void Input_DauDanhSach_kTrung()
+        {
+            int x;
+            do
+            {
+                Console.Write("Giá trị ( 0 kết thúc ): ");
+                int.TryParse(Console.ReadLine(), out x);
+                if (x == 0) return;
+
+                IntNode resultFind = SearchX(x);
+
+                if (resultFind != null)
+                    Console.WriteLine("Đã có node này trong danh sách ");
+                else
+                    AddFirst(x);
+            } while (true);                 
+        }
+
+        public void Input_CuoiDanhSach_kTrung()
+        {
+            int x;
+            do
+            {
+                Console.Write("Giá trị ( 0 kết thúc ): ");
+                int.TryParse(Console.ReadLine(), out x);
+                if (x == 0) return;
+
+                IntNode resultFind = SearchX(x);
+
+                if (resultFind != null)
+                    Console.WriteLine("Đã có node này trong danh sách ");
+                else
+                    AddLast(x);
+            } while (true);
+        }
+
+        // 2.    remoteAt ( int i ) : xóa node tại vị trí thứ i 
+        public int CountNode()
+        {
+            int count = 0;
+            IntNode temp = head;
+            while ( temp != null)
+            {
+                count++;
+                temp = temp.Next;
+            }    
+            return count;
+        }
+        
+        // 2b. tìm node trước 1 của node temp
+        public IntNode SearchPreTemp(int tempData)
+        {
+            IntNode tempPre = null;
+            for ( IntNode temp = head; temp != null; temp = temp.Next)
+            {
+                if ( temp.Data == tempData)
+                    return tempPre; ;
+                tempPre = temp;
+            }
+                return null;
+        }
     }
 }
 
