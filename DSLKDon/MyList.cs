@@ -13,16 +13,19 @@ namespace DSLKDon
     {
         // 1. attributes
         private IntNode head;   // note đầu danh sách
+        private IntNode tail;
         private int count;      // số lượng phần tử
 
         // 2. properties
         public IntNode Head { get { return head; } set { head = value; } }
+        public IntNode Last {  get { return tail; } set { tail = value; } } 
         public int Count { get { return count; } set { count = value; } }
 
         // 3. constructors
         public MyList()
         {
             head = null;
+            tail = null;
             count = 0;
         }
 
@@ -220,7 +223,7 @@ namespace DSLKDon
 
         // buổi 5 
         // 1 Input() viết lại hàm nhập các giá trị không trùng 
-        public void Input_DauDanhSach_kTrung()
+        public void InputUniqueHead()       // đầu danh sách không trùng, viết téng eng cho ngòu
         {
             int x;
             do
@@ -238,7 +241,7 @@ namespace DSLKDon
             } while (true);                 
         }
 
-        public void Input_CuoiDanhSach_kTrung()
+        public void InputUniqueTail()       // cuối danh sách không trùng 
         {
             int x;
             do
@@ -280,6 +283,78 @@ namespace DSLKDon
                 tempPre = temp;
             }
                 return null;
+        }
+        // 2c. Tìm node tại vị trí i
+        public IntNode SearchAt( int i )
+        {
+            int j = 0;
+            for ( IntNode temp = head; temp != null; temp = temp.Next )
+            {
+                if (j == i)
+                    return temp;
+                j++;
+            }
+            return null;
+        }
+
+        // remove at
+        public void RemoveAt( int i )
+        {
+            IntNode pDel = SearchAt( i );
+            if ( pDel != null )
+            {
+                // nếu i == 0, xóa phần tử đầu tiên trong danh sách ( head )
+                if ( pDel == head )
+                {
+                    head = pDel.Next;
+                    pDel.Next = null;
+                }
+                // nếu i = chiều dài của chuỗi -1 thì xóa phần tử cuối chuỗi
+                else if ( pDel == tail)
+                {
+                    // tìm phần tử trước pDel, đặt tên là pPRe
+                    IntNode pPre = SearchAt(pDel.Data);
+
+                    // cập nhật giá trị last = pPre, gán pDel.Next = null;
+                    tail = pPre;
+                    pPre.Next = pDel.Next;
+                    pDel.Next = null;
+                }
+            }
+        }
+
+        // RemoveX() xóa node có giá trị x
+        public void RemoveX ( int x )
+        {
+            IntNode pDel = SearchX(x);
+            if ( pDel != null )
+            {
+               // a. nếu pDel = là nút head, remove phần tử đầu tiên trong danh sách ( head )
+               if ( pDel == head )
+                {
+                    head = pDel.Next;
+                    pDel.Next = null;
+                }else if ( pDel == tail )   // nếu pDel = tail, remove phần tử cuối chuỗi
+                {
+                    // tìm phần tử trước pDel, đặt tên biến là pPre
+                    IntNode pPre = SearchPreTemp(pDel.Data);
+
+                    // cập nhật giá trị tail = pPre, gán pDel.Next = null;
+                    tail = pPre;
+                    pPre.Next = null;
+                    pDel.Next = null;
+                } else      // node xóa nằm ở giữa 
+                { 
+                    // tìm phẩn tử trước pDel, đặt tên biến là pPre 
+                    IntNode pPre = SearchPreTemp( pDel.Data);
+
+                    // cập nhật 
+                    pPre.Next = pDel.Next;
+                    pDel.Next = null;
+                }
+
+            }
+
         }
     }
 }
