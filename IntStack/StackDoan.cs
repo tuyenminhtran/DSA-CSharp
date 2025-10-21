@@ -6,56 +6,58 @@ using System.Threading.Tasks;
 
 namespace IntStack
 {
-    internal class ListStack
+    internal class StackDoan
     {
         // attributes
-        private Node top;
+        private NodeDoan top;
 
         // properties
-        public Node Top { get => top; set => top = value; }
+        public NodeDoan Top {  get => top; set => top = value; }
 
-        // constructor 
-        public ListStack() { top = null; }
+        // constructor
+        public StackDoan() { top = null; }
 
-        // method 
+        // method
         public bool IsEmpty()
         {
             return top == null;
         }
-        public bool Push( int x )
+        public bool Push( Doan x )
         {
-            // last in first out : chèn vào đầu danh sách => lấy ra cũng từ đầu danh sách
-            Node newNode = new Node();
+            // last in first out 
+            NodeDoan newNode = new NodeDoan(x.Left, x.Right);
             newNode.Next = top;
             top = newNode;
             return true;
         }
 
-        public bool Pop( out int outItem )
+        public bool Pop( out Doan outItem )
         {
-            outItem = 0;
+            outItem = null;
             if (IsEmpty())
                 return false;
             else
             {
-                // lấy ra từ đầu danh sách
-                Node p = top;
+                NodeDoan p = top;
                 outItem = p.Data;
                 top = p.Next;
+                p.Next = null;
                 return true;
             }
         }
-        public bool GetTop(out int outItem)
+        public bool GetTop ( out Doan outItem )
         {
-            outItem = 0;
+            outItem = null;
             if (IsEmpty())
                 return false;
             else
             {
-                // trả về phần tử đầu danh sách
                 outItem = top.Data;
                 return true;
             }
         }
+
+        // yêu cầu 4 : sử dụng StackDoan và IntArray | QuickSort để sắp xếp mảng 1 chiều
+        // hoán vị 2 số nguyên
     }
 }
