@@ -13,6 +13,7 @@ DSA-CSharp/
 ├── Bai2/ → Giải thuật tìm kiếm
 ├── Bai3/ → Giải thuật sắp xếp
 ├── Bai4/ → Danh sách liên kết đơn
+├── Bai5/ → cấu trúc Stack
 └── README.md
 
 ```
