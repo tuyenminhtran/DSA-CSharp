@@ -128,11 +128,12 @@ namespace IntStack
                     // nếu phẩn tử hiện tại nhỏ hơn hoặc bằng pivot 
                     i++;
                     // đưa phần tử nhỏ lên trước pivot
-                    HoanVi(ref mangA[i], ref mangA[right]);
-                }
-
-                // đưa pivot vào đúng vị trí giữa 2 vùng
+                    HoanVi(ref mangA[i], ref mangA[j]);
+                }            
             }
+
+            // đưa pivot vào đúng vị trí giữa 2 vùng
+            HoanVi(ref mangA[i + 1], ref mangA[right]);
             return i + 1;
         }
     }
