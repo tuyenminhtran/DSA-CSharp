@@ -81,9 +81,37 @@ namespace IntQueue
             Node p = front;
             while( p != null)
             {
-                Console.Write(p.Data + " : ");
+                Console.Write(p.Data);
+                if (p.Next != null) Console.Write(" : ");
                 p = p.Next;
             }
+        }
+        public int Count()
+        {
+            int count = 0;
+            Node p = front;
+            while (p != null)
+            {
+                count++;
+                p = p.Next;
+            }
+            return count;
+        }
+        public void RotateLeft(int k)
+        {
+            if (IsEmpty())
+            {
+                Console.WriteLine("Queue rỗng, không thể xoay.");
+                return;
+            }
+
+            k = k % Count();
+            for (int i = 0; i < k; i++)
+            {
+                if (DeQueue(out int frontItem))
+                    EnQueue(frontItem);
+            }
+            Console.WriteLine($"Queue (List) đã xoay sang trái {k} lần.");
         }
     }
 }

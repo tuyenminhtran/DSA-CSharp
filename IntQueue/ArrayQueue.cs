@@ -9,16 +9,19 @@ namespace IntQueue
     internal class ArrayQueue
     {
         //attribute 
-        int front;
-        int rear;
-        int[] array;
-        int max;
+        // yêu cầu 3
+        private int front;
+        private int rear;
+        private int[] array;
+        private int max;
+        private int count;
 
         // properties
         public int Front { get => front; set => front = value; }
         public int Rear { get => rear; set => rear = value; }
         public int Max { get => max; set => max = value; }
         public int[] Array { get => array; set => array = value; }
+        public int Count { get => count; set => count = value; }
 
         // constructor 
         public ArrayQueue() { }
@@ -28,12 +31,13 @@ namespace IntQueue
             array = new int[m];
             front = -1;
             rear = -1;
+            count = 0;
         }
 
         // method 
         public bool IsFull()
         {
-            return (front == 0 && rear == max - 1) || ((rear + 1) % max == front); 
+            return (front == 0 && rear == max - 1) || ((rear + 1) % max == front);
         }
 
         public bool IsEmpty()
@@ -41,88 +45,104 @@ namespace IntQueue
             return front == -1;
         }
 
+        // thêm phần tử vào Queue
         public bool EnQueue(int newItem)
         {
             if (IsFull()) return false;
 
             // sài toán tử 3 ngôi cho gọn 
             // dễ sai ngay đoạn này 
-            rear = IsEmpty() ? (front = 0) : (rear + 1) % max;
+            if (IsEmpty()) front = 0;
+            rear = (rear + 1) % max;
             array[rear] = newItem;
+            count++;
             return true;
         }
 
+        // lấy phần tử khỏi Queue
         public bool DeQueue(out int outItem)
         {
             outItem = 0;
-            if(IsEmpty()) return false;
+            if (IsEmpty()) return false;
 
-            if (front == 0 && rear == 0)   // queue chỉ 1 pần tử 
+            outItem = array[front];
+
+            if (front == rear)  // chỉ còn 1 phần tử
+            {
                 front = rear = -1;
-            else if (front == max - 1)
-                front = 0;
-            else front = ( front + 1 ) % max;
+            }
+            else
+            {
+                front = (front + 1) % max;
+            }
 
+            count--;
             return true;
         }
 
-        public bool GetFront( out int outItem )
+        // lấy phần tử đầu Queue
+        public bool GetFront(out int outItem)
         {
             outItem = 0;
             if (IsEmpty())
             {
                 Console.WriteLine("Queue rỗng !");
                 return false;
-            } else
-            {
-                outItem = array[front];
-                return true;
             }
+            outItem = array[front];
+            return true;
         }
 
-        public bool GetRear( out int outItem)
+        public bool GetRear(out int outItem)
         {
             outItem = 0;
-            if(IsEmpty())
+            if (IsEmpty())
             {
                 Console.WriteLine("Queue rỗng !");
                 return false;
             }
-            else
-            {
-                outItem = array[rear];
-                return true;
-            }
+            outItem = array[rear];
+            return true;
         }
 
+        // hiển thị toàn bộ Queue
         public void DisplayQueue()
         {
-            if (IsEmpty()) Console.WriteLine("Queue rỗng !");
-            else
+            if (IsEmpty())
             {
-                // nếu rear chưa vượt qua kích thước tối đa
-                // hoặc rear của hàng đợi vẫn lớn hơn front 
-                if ( rear >= front )
-                {
-                    for( int i = front; i <= rear; i++ )
-                        Console.Write( array[i] + " : ");
-                }
-                else
-                {
-                    // nếu rear vượt qua kích thước tối đa 
-                    // việc đánh số bắt đầu lại từ đầu
+                Console.WriteLine("Queue rỗng !");
+                return;
+            }
 
-                    // for để in các phần tử ở vị trí front
-                    // đến kích thước tối đa hoặc chỉ số cuối cùng trong mảng 
-                    for (int i = front; i <= max; i++)
-                        Console.Write(array[i] + " : ");
-
-                    // for để in các ptu chỉ số 0 cho đến vị trí rear
-                    for (int i = 0; i <= rear; i++)
-                        Console.Write(array[i] + " : ");
-                }
+            Console.Write("Queue: ");
+            int i = front;                        // bắt đầu từ phần tử đầu queue
+            for (int c = 0; c < count; c++)       // lặp đúng số phần tử hiện có
+            {
+                Console.Write(array[i]);          // in ra phần tử hiện tại
+                if (c != count - 1) Console.Write(" : ");
+                i = (i + 1) % max;                // tăng chỉ số, nếu vượt quá max thì quay lại đầu
             }
             Console.WriteLine();
+        }
+
+        public void RotateLeft(int k)
+        {
+            if (IsEmpty())
+            {
+                Console.WriteLine("Queue rỗng, không thể xoay !");
+                return;
+            }
+
+            // tối ưu: xoay nhiều hơn số phần tử thì chỉ cần xoay k % count lần
+            k = k % count;
+
+            for (int i = 0; i < k; i++)
+            {
+                DeQueue(out int frontItem);
+                EnQueue(frontItem);
+            }
+
+            Console.WriteLine($"Đã xoay queue sang trái {k} lần !");
         }
     }
 }

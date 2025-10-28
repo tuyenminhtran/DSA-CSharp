@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSLKDon", "DSLKDon\DSLKDon.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntStack", "IntStack\IntStack.csproj", "{5F4F4981-E76A-4DF2-BF3B-1EBF6D7F4DE4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntQueue", "IntQueue\IntQueue.csproj", "{CF292913-AB6A-455B-BA43-D167E3BE9DC3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{5F4F4981-E76A-4DF2-BF3B-1EBF6D7F4DE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F4F4981-E76A-4DF2-BF3B-1EBF6D7F4DE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F4F4981-E76A-4DF2-BF3B-1EBF6D7F4DE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF292913-AB6A-455B-BA43-D167E3BE9DC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF292913-AB6A-455B-BA43-D167E3BE9DC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF292913-AB6A-455B-BA43-D167E3BE9DC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF292913-AB6A-455B-BA43-D167E3BE9DC3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
