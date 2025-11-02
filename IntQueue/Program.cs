@@ -128,8 +128,42 @@ namespace IntQueue
                             lstQueue.DisplayQueue();
                         }
                         break;
+                    case 13:
+                        {
+                            Console.Write("Nhập chuỗi : ");
+                            string str = Console.ReadLine();
+
+                            if (IsPalindrome(str))
+                                Console.WriteLine("Chuỗi Palindrome !");
+                            else
+                                Console.WriteLine("Không phải chỗi Palindrome !");
+                        }
+                        break;
                 }
             } while (true);
+        }
+
+        static bool IsPalindrome( string s )
+        {
+            CharStack st = new CharStack();
+            CharQueue q = new CharQueue();
+
+            for(int i = 0; i < s.Length; i++ )
+            {
+                char c = s[i];
+                st.Push(c);
+                q.EnQueue(c);
+            }
+
+            for ( int i = 0; i < s.Length; i++ )
+            {
+                st.Pop(out char StackChar);
+                q.DeQueue(out char queueChar);
+
+                if (StackChar != queueChar)
+                    return false;
+            }
+            return true;
         }
     }
 }
