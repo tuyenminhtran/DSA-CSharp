@@ -24,11 +24,12 @@ namespace IntBST
         public int HeightTree ( IntNode node )
         {
             if (node == null) return 0;
-            int LeftHeight = HeightTree(root.Left);
-            int RightHeight = HeightTree(root.Right);
+            int LeftHeight = HeightTree(node.Left);
+            int RightHeight = HeightTree(node.Right);
             return Math.Max(RightHeight, LeftHeight) + 1;
         }
 
+        // tìm node trong cây
         public int NodeCuaCay( IntNode node )
         {
             if (node == null) return 0;
@@ -124,7 +125,70 @@ namespace IntBST
                 Console.Write('\n');
                 level++;
             }
+        }
 
+        // listlastlevel : In ra các giá trị ở mức cuối của cây
+        public void ListLastLevel()
+        {
+            if (Root == null) return;
+
+            // tại hàng đợi để duyệt BFS
+            // sau đó đưa node gốc vào hàng đợi
+            Queue<IntNode> q = new Queue<IntNode>();
+            q.Enqueue(Root);
+
+            // list dùng để lưu các node ở mức cuối cùng
+            List<int> lastLevel = new List<int>();
+            while ( q.Count > 0 )
+            {
+                int n = q.Count;                    // số node trong mức hiện tại
+                lastLevel.Clear();                  // xóa danh sách cũ ( chỉ giữ mức hiện tại )
+                for ( int i = 0; i < n; i++ )
+                {
+                    IntNode node = q.Dequeue();     // lấy node đầu tiên trong hàng đợi
+                    lastLevel.Add(node.Data);       // ghi lại giá trị node
+
+                    if (node.Left != null) q.Enqueue(node.Left);
+                    if ( node.Right != null ) q.Enqueue(node.Right);
+                }
+            }
+
+            // khi while kết thúc, biến lastLevel chứa các node ở mức cuối cùng
+            Console.Write("Các Node ở mức cuối cùng : ");
+            foreach (int val in lastLevel)
+                Console.Write(val + " ");
+            Console.Write('\n');
+        }
+
+        // Find x : tìm trả về node có giá trị x trong cây
+        public IntNode FindX(int x)
+        {
+            if (root == null) return null;
+            return root.SearchX(x);
+        }
+
+        // find min 
+        public IntNode FindMin()
+        {
+            if (root == null) return null;
+            return root.LeftMost();
+        }
+
+        // findmax
+        public IntNode FindMax()
+        {
+            if ( root == null) return null;
+            return root.RightMost();
+        }
+
+        // remove X
+        public void Remove( int x )
+        {
+            bool kq = root.RemoveX(x, ref root);
+            if (kq)
+                Console.WriteLine("Xóa thành công !");
+            else
+                Console.WriteLine("Xóa không thành công !");
         }
     }
 }

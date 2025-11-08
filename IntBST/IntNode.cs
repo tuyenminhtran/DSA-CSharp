@@ -119,6 +119,12 @@ namespace IntBST
             // ngược lại nếu không phải thì gọi lại hàm
             return right.RightMost();
         }
+        
+        public IntNode LeftMost()
+        {
+            if (left == null) return this;
+            return left.LeftMost();
+        }
 
         public bool RemoveX( int x, ref IntNode root )
         {
