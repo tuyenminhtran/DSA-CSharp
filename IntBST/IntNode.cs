@@ -173,10 +173,10 @@ namespace IntBST
                 IntNode successorParent = current;
                 IntNode succcessor = current.right;
 
-                while ( successorParent.left != null )
+                while ( successorParent.Left != null )
                 {
                     successorParent = succcessor;
-                    succcessor = successorParent.left;
+                    succcessor = successorParent.Left;
                 }
 
                 // copy value successor vào node hiện tại 
@@ -184,7 +184,7 @@ namespace IntBST
 
                 // xóa node successor 
                 if (successorParent.left == succcessor)
-                    successorParent.left = successorParent.right;
+                    successorParent.left = succcessor.right;
                 else
                     successorParent.right = succcessor.right; 
 

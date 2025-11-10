@@ -62,11 +62,10 @@ namespace IntBST
                 else
                 {
                     Console.WriteLine("Giá trị bị trùng !\n - Kết thúc - ");
-                    break; 
-                }    
+                    break;
+                }
             } while (true);
         }
-
         // duyệt cây
         public void PreOrder()
         {
