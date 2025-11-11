@@ -30,7 +30,7 @@ namespace IntAVLTree
         {
             return Root.Search(Root, x) != null;
         }
-        public void InPut()
+        public void Input()
         {
             while ( true )
             {

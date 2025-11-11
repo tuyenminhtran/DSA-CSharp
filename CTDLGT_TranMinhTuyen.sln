@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntQueue", "IntQueue\IntQue
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntBST", "IntBST\IntBST.csproj", "{A9DF36D5-3AC6-45BA-8573-52A39F53FE51}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntAVLTree", "IntAVLTree\IntAVLTree.csproj", "{6DE596E1-8477-4415-893C-0379276C3A60}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{A9DF36D5-3AC6-45BA-8573-52A39F53FE51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9DF36D5-3AC6-45BA-8573-52A39F53FE51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9DF36D5-3AC6-45BA-8573-52A39F53FE51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DE596E1-8477-4415-893C-0379276C3A60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DE596E1-8477-4415-893C-0379276C3A60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DE596E1-8477-4415-893C-0379276C3A60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DE596E1-8477-4415-893C-0379276C3A60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
