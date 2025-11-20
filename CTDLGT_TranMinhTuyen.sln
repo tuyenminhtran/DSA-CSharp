@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntBST", "IntBST\IntBST.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntAVLTree", "IntAVLTree\IntAVLTree.csproj", "{6DE596E1-8477-4415-893C-0379276C3A60}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TuyenLand-Algorithms", "TuyenLand-Algorithms", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChillSort", "ChillSort\ChillSort.csproj", "{65BFBCC5-ECC7-4E6E-AB6C-67346E1415B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,9 +55,16 @@ Global
 		{6DE596E1-8477-4415-893C-0379276C3A60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DE596E1-8477-4415-893C-0379276C3A60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DE596E1-8477-4415-893C-0379276C3A60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65BFBCC5-ECC7-4E6E-AB6C-67346E1415B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65BFBCC5-ECC7-4E6E-AB6C-67346E1415B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65BFBCC5-ECC7-4E6E-AB6C-67346E1415B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65BFBCC5-ECC7-4E6E-AB6C-67346E1415B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{65BFBCC5-ECC7-4E6E-AB6C-67346E1415B2} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E2A7042F-EC0D-4C85-951D-DDE4EBA48A46}
