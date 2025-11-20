@@ -15,6 +15,8 @@ DSA-CSharp/
 ├── Bai4/ → Danh sách liên kết đơn
 ├── Bai5/ → Stack
 ├── Bai6/ → Queue
+├── Bai7/ → Binary search tree
+├── Bai8/ → Cây nhị phân cân bằng
 └── README.md
 
 ```
